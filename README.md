@@ -27,14 +27,14 @@ All adjustments to code are denoted by "Grunes/Sexstone additions" in the model 
 #### `ro_adjust` parameter
 `ro_adjust` is a snow density rate adjustment factor that can be used to make the snow density increase faster (ro_adjust > 1.0) or slower (ro_adjust < 1.0).
 
-[(Liston and Elder, 2006](https://journals.ametsoc.org/view/journals/hydr/7/6/jhm548_1.xml) has `ro_adjust` hard-coded into the SnowPack sub-model (in [code/snowpack_code.f](relative_link)). This version includes the adjustment of `ro_adjust` in the [snowmodel.par](relative_link) file so this is easily adjustable for model runs. 
+[(Liston and Elder, 2006](https://journals.ametsoc.org/view/journals/hydr/7/6/jhm548_1.xml) has `ro_adjust` hard-coded into the SnowPack sub-model (in [code/snowpack_code.f](code/snowpack_code.f)). This version includes the adjustment of `ro_adjust` in the [snowmodel.par](snowmodel.par) file so this is easily adjustable for model runs. 
 
 #### `snowfall_frac` parameter
-[Liston and Elder, 2006](https://journals.ametsoc.org/view/journals/hydr/7/6/jhm548_1.xml) original model version has a `snowfall_frac` parameter included in the [snowmodel.par](relative_link) file to adjust the method used to partition precipitation. In this model version, this parameter is now included in the [snowmodel.par](relative_link) file with different options for precipitation phase partitioning methods. 
+[Liston and Elder, 2006](https://journals.ametsoc.org/view/journals/hydr/7/6/jhm548_1.xml) original model version has a `snowfall_frac` parameter included in the [snowmodel.par](snowmodel.par) file to adjust the method used to partition precipitation. In this model version, this parameter is now included in the [snowmodel.par](snowmodel.par) file with different options for precipitation phase partitioning methods. 
 
 1. **`snowfall_frac` = 1.0: Single-value threshold, air-temperature only [(Auer, 1974)](https://www.tandfonline.com/doi/abs/10.1080/00431672.1974.9931684)**
 Rain occurs at temperatures above **+2&deg;C** and snow occurs below this threshold. No mixed precipitation occurs. 
-    *The value of this threshold may be adjusted in the [code/micromet_code.f](relative_link) file. 
+    *The value of this threshold may be adjusted in the [code/micromet_code.f](code/micromet_code.f) file. 
 2. **`snowfall_frac` = 2.0: Hyperbolic tangent function, air-temperature only [(Dai, 2008)](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL033295)**
 Rain vs. snow is determined based on a hyperbolic tangent function to represent the snowfall fraction (F) as a function of only air temperature (T<sub>air</sub>) as shown in the following equation. Here, mixed precipitation may occur at near-freezing temperatures. 
 
@@ -55,7 +55,7 @@ $p(snow) = {1\over1+e^(\alpha+\beta T_air+\gamma RH)}$
 
 4. **`snowfall_frac` = 4.0: Wet bulb temperature threshold**
 Wet bulb temperature is calculated as a function of T<sub>air</sub> and RH using an empirical equation (Stull, 2011). Rain occurs at wet bulb temperatures above **+0.5&deg;C** and snow occurs below this threshold. No mixed precipitation occurs. 
-    *The value of this threshold may be adjusted in the [code/micromet_code.f](relative_link) file. 
+    *The value of this threshold may be adjusted in the [code/micromet_code.f](code/micromet_code.f) file. 
 
 #### `pertTair` and `pertPrec` parameters
 These parameters were implemented to conduct climate scenario analyses with temperature and preciptiation perturbations. 
