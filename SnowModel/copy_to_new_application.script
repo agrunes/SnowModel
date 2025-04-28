@@ -1,0 +1,5 @@
+#!/bin/bash
+new_location="../sm_pflug_23_24/"
+new_snowmodel_directory="${new_location}"
+mkdir -p $new_snowmodel_directory
+cp -p -r * $new_snowmodel_directory
