@@ -2,7 +2,7 @@
 
 <!-- ![combined](https://user-images.githubusercontent.com/20308427/92159459-4a1c9380-ede2-11ea-8a07-99015fa9e4a9.jpg) -->
 
-Anna Grunes^1^, Graham Sexstone^2^
+Anna Grunes<sup>1</sup>, Graham Sexstone<sup>2</sup>
 ^1^ Civil and Environmental Engineering Department, University of Vermont
 ^2^ U.S. Geological Survey Colorado Water Science Center
 
