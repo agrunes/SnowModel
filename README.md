@@ -71,16 +71,27 @@ These parameters were implemented to conduct climate scenario analyses with temp
 * User-defined lapse rates as defined in Grunes et al., 2025 (Table S1)
 
 **Directory:**
+
 ├── code
+
 │└──── model code files for sub-models (i.e. MicroMet, SnowPack, EnBal etc.)
+
 ├── figures
+
 │└──── GrADS files to generate figures from SnowModel output
+
 ├── met
+
 │└──── directory to manage and place met forcing files
+
 ├── outputs
+
 │└──── SnowModel output is directed here 
+
 ├── post_process
+
 │└────  Contains .f files to convert .gdat output to .flt and .hdr files 
+
 
 
 Model developments are appropriate for only multilayer simulations due to the gravity drainage routines. Liquid water movement relies more-heavily on snow temperature than the default model and therefore requires simulations with model forcing at at least 3-hourly timesteps, or more frequent. 
