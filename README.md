@@ -8,7 +8,7 @@
 
 ###### <sup>2</sup> U.S. Geological Survey Colorado Water Science Center
 
-##### This repository contains further developments to the SnowModel distributed model framework [(Liston and Elder, 2006; ](https://journals.ametsoc.org/view/journals/hydr/7/6/jhm548_1.xml) [Pflug et al., 2019))](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018WR024632@10.1002/(ISSN)1944-7973.SNOWEX1). Here, the gravity drainage model developed by [Pflug et al. (2019)](https://github.com/jupflug/SnowModel/tree/master) is adjusted to include a calculation of the rain-snow threshold as a function of both T~air~ and RH, as well as the $\rho$-adjust parameter to adjust the densification rate of the snowpack, with the goal of improving model performance in warm, wet snow environments. 
+##### This repository contains further developments to the SnowModel distributed model framework [(Liston and Elder, 2006; ](https://journals.ametsoc.org/view/journals/hydr/7/6/jhm548_1.xml) [Pflug et al., 2019))](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018WR024632@10.1002/(ISSN)1944-7973.SNOWEX1). Here, the gravity drainage model developed by [Pflug et al. (2019)](https://github.com/jupflug/SnowModel/tree/master) is adjusted to include a calculation of the rain-snow threshold as a function of both T<sub>air</sub> and RH, as well as the $\rho$-adjust parameter to adjust the densification rate of the snowpack, with the goal of improving model performance in warm, wet snow environments. 
 
 
 ### Model developments from Pflug et al. 2019 version:
@@ -42,7 +42,7 @@ $F[T_air] = a[tanh(b(T_air-c))-d]$
 
 *where a, b, c, and d were set to −0.482292, 0.7205, 1.1662, and 1.0223, respectively.*
 
-3. **`snowfall_frac` = 3.0: T~air~-RH bivariate logistic regression model [(Jennings et al., 2018)](https://www.nature.com/articles/s41467-018-03629-7)**
+3. **`snowfall_frac` = 3.0: T<sub>air</sub>-RH bivariate logistic regression model [(Jennings et al., 2018)](https://www.nature.com/articles/s41467-018-03629-7)**
 Rain vs. snow is determined based on the calculated probability of snow occurring. The following equation calculates the probability of snow occurring (*p(snow)*) as a function of air temperature (T<sub>air</sub>) and RH. Precipitation is classified as snow when the probability of snow occurring is greater than or equal to 50%, and classified as rain when less than 50%. 
 
 
@@ -59,7 +59,7 @@ Wet bulb temperature is calculated as a function of T<sub>air</sub> and RH using
 
 #### `pertTair` and `pertPrec` parameters
 These parameters were implemented to conduct climate scenario analyses with temperature and preciptiation perturbations. 
-* `pertTair` : if `pertTair` = 0, no perturbation will be applied. Otherwise, value will be used as a **scalar addition** to the entire met input T~air~ time series. Temperature adjustment should be in degrees units &deg;C. 
+* `pertTair` : if `pertTair` = 0, no perturbation will be applied. Otherwise, value will be used as a **scalar addition** to the entire met input T<sub>air</sub> time series. Temperature adjustment should be in degrees units &deg;C. 
 * `pertPrec` : if `pertPrec` = 1, no perturbation will be applied. Otherwise, value will be used as a **scalar multiplier** to the entire met input precip time series. 
 
 
