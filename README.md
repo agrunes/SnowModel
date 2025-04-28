@@ -2,9 +2,11 @@
 
 <!-- ![combined](https://user-images.githubusercontent.com/20308427/92159459-4a1c9380-ede2-11ea-8a07-99015fa9e4a9.jpg) -->
 
-Anna Grunes<sup>1</sup>, Graham Sexstone<sup>2</sup>
-^1^ Civil and Environmental Engineering Department, University of Vermont
-^2^ U.S. Geological Survey Colorado Water Science Center
+##### Anna Grunes<sup>1</sup>, Graham Sexstone<sup>2</sup>
+
+###### <sup>1</sup> Civil and Environmental Engineering Department, University of Vermont
+
+###### <sup>2</sup> U.S. Geological Survey Colorado Water Science Center
 
 ##### This repository contains further developments to the SnowModel distributed model framework [(Liston and Elder, 2006; ](https://journals.ametsoc.org/view/journals/hydr/7/6/jhm548_1.xml) [Pflug et al., 2019))](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018WR024632@10.1002/(ISSN)1944-7973.SNOWEX1). Here, the gravity drainage model developed by [Pflug et al. (2019)](https://github.com/jupflug/SnowModel/tree/master) is adjusted to include a calculation of the rain-snow threshold as a function of both T~air~ and RH, as well as the $\rho$-adjust parameter to adjust the densification rate of the snowpack, with the goal of improving model performance in warm, wet snow environments. 
 
@@ -14,14 +16,14 @@ All adjustments to code are denoted by "Grunes/Sexstone additions" in the model 
 * Inclusion of $\rho$-adjust parameter (`ro_adjust`) in [snowmodel.par](relative_link) to adjust densification rate
 * Four options for snowfall fraction (`snowfall_frac`) calculation in [snowmodel.par](relative_link): 
     1. Single-value threshold, air-temperature only (Auer, 1974)
-    2. Hyperbolic tangent function to represent the snowfall fraction as a function of only air temperature (T~air~) (Dai, 2008; [(Liston and Elder, 2006](https://journals.ametsoc.org/view/journals/hydr/7/6/jhm548_1.xml))
-    3. Bivariate logistic regression model, which calculates the probability of snow occurring (*p(snow)*) as a function of air temperature (T~air~) and RH, [(Jennings et al., 2018)](https://www.nature.com/articles/s41467-018-03629-7). 
-    4. Wet bulb temperature threshold, which calculates T~wetbulb~ as a function of T~air~ and RH
+    2. Hyperbolic tangent function to represent the snowfall fraction as a function of only air temperature (T<sub>air</sub>) (Dai, 2008; [(Liston and Elder, 2006](https://journals.ametsoc.org/view/journals/hydr/7/6/jhm548_1.xml))
+    3. Bivariate logistic regression model, which calculates the probability of snow occurring (*p(snow)*) as a function of air temperature (T<sub>air</sub>) and RH, [(Jennings et al., 2018)](https://www.nature.com/articles/s41467-018-03629-7). 
+    4. Wet bulb temperature threshold, which calculates T<sub>wetbulb</sub> as a function of T<sub>air</sub> and RH
 
 * Implementation of air temperature (`pertTair`) and precipitation (`pertPrec`) perturbation parameters in [snowmodel.par](relative_link)
 
 
-### Details
+## Details
 #### `ro_adjust` parameter
 `ro_adjust` is a snow density rate adjustment factor that can be used to make the snow density increase faster (ro_adjust > 1.0) or slower (ro_adjust < 1.0).
 
@@ -34,14 +36,14 @@ All adjustments to code are denoted by "Grunes/Sexstone additions" in the model 
 Rain occurs at temperatures above **+2&deg;C** and snow occurs below this threshold. No mixed precipitation occurs. 
     *The value of this threshold may be adjusted in the [code/micromet_code.f](relative_link) file. 
 2. **`snowfall_frac` = 2.0: Hyperbolic tangent function, air-temperature only [(Dai, 2008)](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL033295)**
-Rain vs. snow is determined based on a hyperbolic tangent function to represent the snowfall fraction (F) as a function of only air temperature (T~air~) as shown in the following equation. Here, mixed precipitation may occur at near-freezing temperatures. 
+Rain vs. snow is determined based on a hyperbolic tangent function to represent the snowfall fraction (F) as a function of only air temperature (T<sub>air</sub>) as shown in the following equation. Here, mixed precipitation may occur at near-freezing temperatures. 
 
 $F[T_air] = a[tanh(b(T_air-c))-d]$ 
 
 *where a, b, c, and d were set to −0.482292, 0.7205, 1.1662, and 1.0223, respectively.*
 
 3. **`snowfall_frac` = 3.0: T~air~-RH bivariate logistic regression model [(Jennings et al., 2018)](https://www.nature.com/articles/s41467-018-03629-7)**
-Rain vs. snow is determined based on the calculated probability of snow occurring. The following equation calculates the probability of snow occurring (*p(snow)*) as a function of air temperature (T~air~) and RH. Precipitation is classified as snow when the probability of snow occurring is greater than or equal to 50%, and classified as rain when less than 50%. 
+Rain vs. snow is determined based on the calculated probability of snow occurring. The following equation calculates the probability of snow occurring (*p(snow)*) as a function of air temperature (T<sub>air</sub>) and RH. Precipitation is classified as snow when the probability of snow occurring is greater than or equal to 50%, and classified as rain when less than 50%. 
 
 
 ###### **Adjustments were made to SnowModel MicroMet code to include RH in the calculation of the rain-snow partitioning.*
@@ -52,7 +54,7 @@ $p(snow) = {1\over1+e^(\alpha+\beta T_air+\gamma RH)}$
 
 
 4. **`snowfall_frac` = 4.0: Wet bulb temperature threshold**
-Wet bulb temperature is calculated as a function of T~air~ and RH using an empirical equation (Stull, 2011). Rain occurs at wet bulb temperatures above **+0.5&deg;C** and snow occurs below this threshold. No mixed precipitation occurs. 
+Wet bulb temperature is calculated as a function of T<sub>air</sub> and RH using an empirical equation (Stull, 2011). Rain occurs at wet bulb temperatures above **+0.5&deg;C** and snow occurs below this threshold. No mixed precipitation occurs. 
     *The value of this threshold may be adjusted in the [code/micromet_code.f](relative_link) file. 
 
 #### `pertTair` and `pertPrec` parameters
