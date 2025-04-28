@@ -13,14 +13,14 @@
 
 ### Model developments from Pflug et al. 2019 version:
 All adjustments to code are denoted by "Grunes/Sexstone additions" in the model code.
-* Inclusion of $\rho$-adjust parameter (`ro_adjust`) in [snowmodel.par](relative_link) to adjust densification rate
-* Four options for snowfall fraction (`snowfall_frac`) calculation in [snowmodel.par](relative_link): 
+* Inclusion of $\rho$-adjust parameter (`ro_adjust`) in [snowmodel.par](snowmodel.par) to adjust densification rate
+* Four options for snowfall fraction (`snowfall_frac`) calculation in [snowmodel.par](snowmodel.par): 
     1. Single-value threshold, air-temperature only (Auer, 1974)
     2. Hyperbolic tangent function to represent the snowfall fraction as a function of only air temperature (T<sub>air</sub>) (Dai, 2008; [(Liston and Elder, 2006](https://journals.ametsoc.org/view/journals/hydr/7/6/jhm548_1.xml))
     3. Bivariate logistic regression model, which calculates the probability of snow occurring (*p(snow)*) as a function of air temperature (T<sub>air</sub>) and RH, [(Jennings et al., 2018)](https://www.nature.com/articles/s41467-018-03629-7). 
     4. Wet bulb temperature threshold, which calculates T<sub>wetbulb</sub> as a function of T<sub>air</sub> and RH
 
-* Implementation of air temperature (`pertTair`) and precipitation (`pertPrec`) perturbation parameters in [snowmodel.par](relative_link)
+* Implementation of air temperature (`pertTair`) and precipitation (`pertPrec`) perturbation parameters in [snowmodel.par](snowmodel.par)
 
 
 ## Details
