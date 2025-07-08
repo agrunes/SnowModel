@@ -2,11 +2,13 @@
 
 <!-- ![combined](https://user-images.githubusercontent.com/20308427/92159459-4a1c9380-ede2-11ea-8a07-99015fa9e4a9.jpg) -->
 
-##### Anna Grunes<sup>1</sup>, Graham Sexstone<sup>2</sup>
+##### Anna Grunes<sup>1</sup>, Graham Sexstone<sup>2</sup>, John Hammond<sup>3</sup>
 
 ###### <sup>1</sup> Civil and Environmental Engineering Department, University of Vermont
 
 ###### <sup>2</sup> U.S. Geological Survey Colorado Water Science Center
+
+###### <sup>3</sup> U.S. Geological Survey Maryland-Delaware-DC Water Science Center
 
 ##### This repository contains further developments to the SnowModel distributed model framework [(Liston and Elder, 2006; ](https://journals.ametsoc.org/view/journals/hydr/7/6/jhm548_1.xml) [Pflug et al., 2019))](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018WR024632@10.1002/(ISSN)1944-7973.SNOWEX1). Here, the gravity drainage model developed by [Pflug et al. (2019)](https://github.com/jupflug/SnowModel/tree/master) is adjusted to include a calculation of the rain-snow threshold as a function of both T<sub>air</sub> and RH, as well as the $\rho$-adjust parameter to adjust the densification rate of the snowpack, with the goal of improving model performance in warm, wet snow environments. 
 
